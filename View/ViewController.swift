@@ -69,7 +69,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.coinImage.downloaded(from: URL(string: self.filteredImage[indexPath.row])!, contentMode: .scaleAspectFit, blur: false)
         cell.coinNameLabel.text = filteredData[indexPath.row]
         cell.coinPriceLabel.text = "$" + String(round(self.filteredPrice[indexPath.row]*1000000)/1000000)
-        Animation().animateAll3(view: [cell])
+        Animation().animateAll(view: [cell], X: 0, Y: 500, durat: 0.5, damping: 1)
         return cell
     }
     
@@ -129,8 +129,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 }
                 
                 DispatchQueue.main.async {
-                    Animation().animateAll(view: [self.coinCV])
-                    Animation().animateAll2(view: [self.coinTB])
+                    Animation().animateAll(view: [self.coinCV], X: 500, Y: 0)
+                    Animation().animateAll(view: [self.coinTB], X: 0, Y: 500)
                     self.filteredImage = self.imageData
                     self.filteredPrice = self.priceData
                     self.filteredData = self.nameData
