@@ -34,43 +34,17 @@ class Animation {
     }
     
     
-    func animateAll(view: [UIView]){
+     func animateAll(view: [UIView], X: Int, Y: Int, durat: Double = 1, damping: Double = 0.8){
         
         for i in view {
             let animateView = i
             
-            animateView.transform = CGAffineTransform(translationX: 500, y: 0)
-            UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+            animateView.transform = CGAffineTransform(translationX: CGFloat(X), y: CGFloat(Y))
+            UIView.animate(withDuration: durat, delay: 0.0, usingSpringWithDamping: CGFloat(damping), initialSpringVelocity: 0, options: [], animations: {
                 animateView.transform = CGAffineTransform(translationX: 0, y: 0);
             }, completion: nil)
         }
         
     }
-    
-    
-    func animateAll2(view: [UIView]){
-        for i in view {
-            let animateView = i
-            
-            animateView.transform = CGAffineTransform(translationX: 0, y: 500)
-            UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
-                animateView.transform = CGAffineTransform(translationX: 0, y: 0);
-            }, completion: nil)
-        }
-    }
-    
-    
-    func animateAll3(view: [UITableViewCell]){
-        for i in view {
-            let animateView = i
-            
-            animateView.transform = CGAffineTransform(translationX: 0, y: 500)
-            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: {
-                
-                animateView.transform = CGAffineTransform(translationX: 0, y: 0);
-                
-            }, completion: nil)
-        }
-    }
-    
+        
 }
